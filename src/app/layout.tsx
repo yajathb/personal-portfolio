@@ -2,6 +2,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { DarkModeProvider } from "@/components/DarkMode";
 import ScrollRevealObserver from "@/components/ScrollRevealObserver";
+import { Analytics } from "@vercel/analytics/next";
 
 // Runs before hydration to prevent a light/dark flash on first paint.
 const themeBootstrapScript = `(() => {
@@ -34,6 +35,7 @@ export default function RootLayout({
           <Navbar />
           {children}
         </DarkModeProvider>
+        <Analytics />
       </body>
     </html>
   );
