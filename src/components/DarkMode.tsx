@@ -20,8 +20,10 @@ interface DarkModeContextType {
 const DarkModeContext = createContext<DarkModeContextType | undefined>(undefined);
 
 function getInitialDarkMode() {
+  // During SSR there is no window/localStorage, so default to light and hydrate later.
   if (typeof window === "undefined") return false;
 
+  // Saved preference wins; fallback to OS theme when no preference exists.
   const stored = window.localStorage.getItem("darkMode");
   if (stored !== null) return stored === "true";
 
@@ -32,6 +34,7 @@ export function DarkModeProvider({ children }: { children: ReactNode }) {
   const [isDark, setIsDark] = useState<boolean>(getInitialDarkMode);
 
   useEffect(() => {
+    // Keep DOM class and persisted preference in sync with React state.
     const html = document.documentElement;
     html.classList.toggle("dark", isDark);
     window.localStorage.setItem("darkMode", String(isDark));
@@ -56,6 +59,7 @@ export function DarkModeProvider({ children }: { children: ReactNode }) {
 export function useDarkMode() {
   const context = useContext(DarkModeContext);
   if (!context) {
+    // Fail fast if a consumer is rendered outside provider scope.
     throw new Error("useDarkMode must be used within DarkModeProvider");
   }
   return context;
@@ -63,6 +67,8 @@ export function useDarkMode() {
 
 export default function DarkModeToggle() {
   const { isDark, toggleDarkMode } = useDarkMode();
+
+  // Ensures the first client render matches the server markup to avoid hydration mismatch.
   const isHydrated = useSyncExternalStore(
     () => () => {},
     () => true,

@@ -1,7 +1,9 @@
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { DarkModeProvider } from "@/components/DarkMode";
+import ScrollRevealObserver from "@/components/ScrollRevealObserver";
 
+// Runs before hydration to prevent a light/dark flash on first paint.
 const themeBootstrapScript = `(() => {
   try {
     const stored = localStorage.getItem("darkMode");
@@ -27,6 +29,8 @@ export default function RootLayout({
       </head>
       <body className="min-h-full flex flex-col">
         <DarkModeProvider>
+          {/* Observes section/card visibility and toggles in-view animation classes. */}
+          <ScrollRevealObserver />
           <Navbar />
           {children}
         </DarkModeProvider>
