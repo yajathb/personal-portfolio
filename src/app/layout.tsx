@@ -28,6 +28,7 @@ export default function RootLayout({
       <head>
         <title>Yajath&apos;s Portfolio</title>
         <script dangerouslySetInnerHTML={{ __html: themeBootstrapScript }} />
+          <meta name="google-site-verification" content="ctERC2mP_Ux5UniOV-1U2W51VgswZUdUUYkpxSpIIXo" />
       </head>
       <body className="min-h-full flex flex-col">
         <DarkModeProvider>
