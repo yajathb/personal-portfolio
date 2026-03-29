@@ -1,14 +1,6 @@
 # Yajath's Personal Portfolio
 
-A modern, responsive personal portfolio website built with Next.js 16, React 19, and Tailwind CSS. Designed to showcase projects, skills, and experiences in a clean and professional interface with full dark mode support.
-
-## Features
-
-- **Responsive Design** — Looks great on all screen sizes, from mobile to desktop
-- **Dark Mode** — Toggleable dark/light theme with system preference detection and `localStorage` persistence, with no flash on load
-- **Animated UI** — Smooth card entrance animations and hover effects powered by CSS
-- **Accessible** — Semantic HTML, ARIA labels, and `prefers-reduced-motion` support
-- **Performance** — Optimized with the Next.js App Router, server components, and the Geist font family
+A modern, responsive personal portfolio website built with Next.js 16, React 19, and Tailwind CSS.
 
 ## Tech Stack
 
