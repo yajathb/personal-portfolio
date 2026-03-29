@@ -81,15 +81,15 @@ export default function Home() {
   return (
     <main className="bg-background text-foreground casual-page">
       {/* Hero section with typewriter intro animation hooks. */}
-      <section id="home" className="section-anchor casual-hero min-h-[calc(100svh-4rem)] flex items-center justify-center text-center">
-        <div className="container mx-auto px-4">
-          <h1 className="text-9xl font-bold tracking-tight hero-typewriter">Hi, I&#39;m Yajath.</h1>
+      <section id="home" className="section-anchor casual-hero hero-center">
+        <div className="container mx-auto px-5 sm:px-6">
+          <h1 className="mx-auto w-fit text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-bold tracking-tight hero-typewriter">Hi, I&#39;m Yajath.</h1>
         </div>
       </section>
 
       {/* About cards generated from ABOUT_ITEMS for easy copy updates. */}
-      <section className="wireframe-section section-reveal container mx-auto px-4 py-20" id="about">
-        <h2 className="wireframe-title text-2xl font-semibold mb-12 flex justify-center">About Me</h2>
+      <section className="wireframe-section section-reveal container mx-auto px-5 sm:px-6 py-16 md:py-20" id="about">
+        <h2 className="wireframe-title text-2xl md:text-3xl font-semibold mb-10 md:mb-12 flex justify-center">About Me</h2>
         <div className="about-cards">
           {ABOUT_ITEMS.map((item) => (
             <article key={item.title} className="about-card">
@@ -106,8 +106,8 @@ export default function Home() {
       </section>
 
       {/* Timeline layout renders from EDUCATION_TIMELINE milestones. */}
-      <section className="wireframe-section section-reveal container mx-auto px-4 py-20" id="education">
-        <h2 className="wireframe-title text-2xl font-semibold mb-12 flex justify-center">Education</h2>
+      <section className="wireframe-section section-reveal container mx-auto px-5 sm:px-6 py-16 md:py-20" id="education">
+        <h2 className="wireframe-title text-2xl md:text-3xl font-semibold mb-10 md:mb-12 flex justify-center">Education</h2>
         <div className="timeline">
           {EDUCATION_TIMELINE.map((item) => (
             <article key={item.title} className="timeline-item">
@@ -128,8 +128,8 @@ export default function Home() {
       </section>
 
       {/* Project cards include repo/live links and tech badges. */}
-      <section className="wireframe-section section-reveal container mx-auto px-4 py-20" id="projects">
-        <h2 className="wireframe-title text-2xl font-semibold mb-12 flex justify-center">Projects</h2>
+      <section className="wireframe-section section-reveal container mx-auto px-5 sm:px-6 py-16 md:py-20" id="projects">
+        <h2 className="wireframe-title text-2xl md:text-3xl font-semibold mb-10 md:mb-12 flex justify-center">Projects</h2>
         <div className="projects-grid">
           {PROJECT_ITEMS.map((item) => (
             <article key={item.name} className="project-card casual-card">
@@ -161,8 +161,8 @@ export default function Home() {
       </section>
 
       {/* Skills grouped into categories with badge-style chips. */}
-      <section className="wireframe-section section-reveal container mx-auto px-4 py-20" id="skills">
-        <h2 className="wireframe-title text-2xl font-semibold mb-12 flex justify-center">Skills</h2>
+      <section className="wireframe-section section-reveal container mx-auto px-5 sm:px-6 py-16 md:py-20" id="skills">
+        <h2 className="wireframe-title text-2xl md:text-3xl font-semibold mb-10 md:mb-12 flex justify-center">Skills</h2>
         <div className="skills-grid">
           {SKILL_GROUPS.map((group) => (
             <article key={group.title} className="skill-card casual-card">
@@ -180,8 +180,8 @@ export default function Home() {
       </section>
 
       {/* Contact cards keep channel links easy to scan and update. */}
-      <section className="wireframe-section section-reveal container mx-auto px-4 py-20" id="contact">
-        <h2 className="wireframe-title text-2xl font-semibold mb-12 flex justify-center">Contact</h2>
+      <section className="wireframe-section section-reveal container mx-auto px-5 sm:px-6 py-16 md:py-20" id="contact">
+        <h2 className="wireframe-title text-2xl md:text-3xl font-semibold mb-10 md:mb-12 flex justify-center">Contact</h2>
         <div className="wireframe-grid">
           {CONTACT_ITEMS.map((item) => (
             <article key={item} className="skill-card casual-card">

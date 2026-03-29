@@ -81,7 +81,7 @@ export default function DarkModeToggle() {
     <button
       onClick={toggleDarkMode}
       aria-label={showDarkState ? "Switch to light mode" : "Switch to dark mode"}
-      className="p-2 rounded-lg transition-colors duration-200 hover-scale ml-8"
+      className="p-2 rounded-lg transition-colors duration-200 hover-scale"
       style={{
         backgroundColor: "var(--toggle-bg)",
         color: showDarkState ? "var(--toggle-icon-active)" : "var(--toggle-icon)",

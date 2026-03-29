@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { Menu, X } from "lucide-react";
+import { useState } from "react";
 import DarkModeToggle from "@/components/DarkMode";
 
 // Single source of truth for header anchors used by section IDs on the home page.
@@ -16,6 +18,7 @@ const NAV_LINKS = [
 
 export default function Navbar() {
 	const pathname = usePathname();
+	const [isMenuOpen, setIsMenuOpen] = useState(false);
 
 	// The portfolio is a single-page route; non-root paths render the 404 view.
 	if (pathname !== "/") {
@@ -23,22 +26,37 @@ export default function Navbar() {
 	}
 
 	return (
-		<div className="w-full h-16 flex items-center justify-center">
-			{NAV_LINKS.map(({ href, label }, index) => (
-				<Link
-					key={href}
-					href={href}
-					className={
-						// Keep the first link aligned without left margin; others get spacing.
-						index === 0
-							? "text-xl font-bold text-foreground hover:text-(--muted-foreground)"
-							: "ml-10 text-xl font-bold text-foreground hover:text-(--muted-foreground)"
-					}
+		<header className="site-nav" aria-label="Primary">
+			<div className="site-nav-inner">
+				<button
+					type="button"
+					className="site-nav-toggle"
+					onClick={() => setIsMenuOpen((prev) => !prev)}
+					aria-expanded={isMenuOpen}
+					aria-controls="site-nav-links"
+					aria-label={isMenuOpen ? "Close menu" : "Open menu"}
 				>
-					{label}
-				</Link>
-			))}
-			<DarkModeToggle />
-		</div>
+					{isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+				</button>
+				<nav
+					id="site-nav-links"
+					className={`site-nav-links ${isMenuOpen ? "is-open" : ""}`.trim()}
+				>
+					{NAV_LINKS.map(({ href, label }) => (
+						<Link
+							key={href}
+							href={href}
+							className="site-nav-link"
+							onClick={() => setIsMenuOpen(false)}
+						>
+							{label}
+						</Link>
+					))}
+					<div className="site-nav-theme">
+						<DarkModeToggle />
+					</div>
+				</nav>
+			</div>
+		</header>
 	);
 }
