@@ -1,26 +1,146 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --mono-000: #ffffff;
+  --mono-050: #f6f6f6;
+  --mono-100: #ececec;
+  --mono-200: #d7d7d7;
+  --mono-400: #8d8d8d;
+  --mono-700: #353535;
+  --mono-900: #151515;
+  --mono-950: #0a0a0a;
+
+  --background: var(--mono-000);
+  --foreground: var(--mono-900);
+  --surface: var(--mono-050);
+  --surface-hover: var(--mono-100);
+  --border-color: var(--mono-200);
+  --border-color-hover: var(--mono-400);
+  --muted-foreground: var(--mono-700);
+  --card-glow: rgba(20, 20, 20, 0.1);
+  --card-shadow: rgba(0, 0, 0, 0.16);
+  --card-shadow-hover: rgba(0, 0, 0, 0.28);
+  --toggle-icon: var(--mono-700);
+  --toggle-icon-active: var(--mono-900);
+  --toggle-bg: rgba(20, 20, 20, 0);
+  --easing: cubic-bezier(0.2, 0.65, 0.3, 1);
+  --theme-transition: 320ms var(--easing);
+  scroll-behavior: smooth;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html.dark {
+  --background: var(--mono-950);
+  --foreground: var(--mono-050);
+  --surface: #151515;
+  --surface-hover: #1f1f1f;
+  --border-color: #2b2b2b;
+  --border-color-hover: #4a4a4a;
+  --muted-foreground: #cfcfcf;
+  --card-glow: rgba(255, 255, 255, 0.08);
+  --card-shadow: rgba(0, 0, 0, 0.4);
+  --card-shadow-hover: rgba(0, 0, 0, 0.62);
+  --toggle-icon: var(--mono-050);
+  --toggle-icon-active: var(--mono-000);
+  --toggle-bg: rgba(255, 255, 255, 0);
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Geist, Arial, sans-serif;
+  transition: background-color var(--theme-transition), color var(--theme-transition);
 }
+
+a,
+button,
+h1,
+h2 {
+  transition: color var(--theme-transition), background-color var(--theme-transition), border-color var(--theme-transition), box-shadow var(--theme-transition);
+}
+
+.about-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.about-card {
+  background: var(--surface);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  overflow: hidden;
+  animation: scaleIn 600ms var(--easing) backwards;
+  transition: background-color var(--theme-transition), border-color var(--theme-transition), box-shadow var(--theme-transition), transform 300ms var(--easing);
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 8px 24px var(--card-shadow);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  position: relative;
+  padding: 1.5rem;
+  color: var(--muted-foreground);
+}
+
+.about-card:nth-child(1) { animation-delay: 200ms; }
+.about-card:nth-child(2) { animation-delay: 250ms; }
+.about-card:nth-child(3) { animation-delay: 300ms; }
+.about-card:nth-child(4) { animation-delay: 350ms; }
+.about-card:nth-child(5) { animation-delay: 400ms; }
+.about-card:nth-child(6) { animation-delay: 450ms; }
+
+.about-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, var(--card-glow) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 400ms ease;
+  pointer-events: none;
+}
+
+.about-card:hover {
+  border-color: var(--border-color-hover);
+  background: var(--surface-hover);
+  box-shadow: 0 14px 36px var(--card-shadow-hover);
+  transform: translateY(-12px);
+}
+
+.about-card:hover::before {
+  opacity: 1;
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --theme-transition: 0ms linear;
+  }
+
+  .about-card {
+    animation: none;
+    transform: none;
+  }
+}
+
