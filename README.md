@@ -1,36 +1,76 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Yajath's Personal Portfolio
+
+A modern, responsive personal portfolio website built with Next.js 16, React 19, and Tailwind CSS. Designed to showcase projects, skills, and experiences in a clean and professional interface with full dark mode support.
+
+## Features
+
+- **Responsive Design** — Looks great on all screen sizes, from mobile to desktop
+- **Dark Mode** — Toggleable dark/light theme with system preference detection and `localStorage` persistence, with no flash on load
+- **Animated UI** — Smooth card entrance animations and hover effects powered by CSS
+- **Accessible** — Semantic HTML, ARIA labels, and `prefers-reduced-motion` support
+- **Performance** — Optimized with the Next.js App Router, server components, and the Geist font family
+
+## Tech Stack
+
+| Technology | Version | Purpose |
+|---|---|---|
+| [Next.js](https://nextjs.org) | 16 | React framework (App Router) |
+| [React](https://react.dev) | 19 | UI library |
+| [TypeScript](https://www.typescriptlang.org) | 5 | Type safety |
+| [Tailwind CSS](https://tailwindcss.com) | 4 | Utility-first styling |
+| [Lucide React](https://lucide.dev) | latest | Icon library |
+
+## Project Structure
+
+```
+src/
+├── app/
+│   ├── globals.css      # Global styles, CSS variables, and animations
+│   ├── layout.tsx       # Root layout with dark mode bootstrap
+│   └── page.tsx         # Home page (Hero + About sections)
+└── components/
+    ├── DarkMode.tsx     # Dark mode context, provider, and toggle button
+    └── Navbar.tsx       # Top navigation bar
+```
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- [Node.js](https://nodejs.org) 18.18 or later
+- npm, yarn, pnpm, or bun
+
+### Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/yajathb/personal-portfolio.git
+cd personal-portfolio
+
+# Install dependencies
+npm install
+```
+
+### Running Locally
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser to view the site. The page hot-reloads as you make edits.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Other Commands
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build   # Create a production build
+npm run start   # Start the production server
+npm run lint    # Run ESLint
+```
 
-## Learn More
+## Deployment
 
-To learn more about Next.js, take a look at the following resources:
+This project is optimized for deployment on [Vercel](https://vercel.com). Simply connect your GitHub repository to Vercel and it will automatically build and deploy on every push to `main`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/yajathb/personal-portfolio)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+For other platforms, run `npm run build` to generate a production build in the `.next` directory.
