@@ -88,7 +88,7 @@ export default function DarkModeToggle() {
       }}
     >
       {showDarkState ? (
-        <Sun className="w-5 h-5" />
+        <Sun className="w-5 h-5"/>
       ) : (
         <Moon className="w-5 h-5" />
       )}
