@@ -31,16 +31,7 @@ const EDUCATION_TIMELINE = [
 ];
 
 const PROJECT_ITEMS = [
-  {
-    name: "IRGuard",
-    description:
-      "A security-focused project exploring practical monitoring and protection workflows, built as a multi-language codebase with frontend and backend experimentation.",
-    status: "Public GitHub Repository",
-    repoUrl: "https://github.com/yajathb/IRGuard",
-    liveUrl: "",
-    badges: ["TypeScript", "Python", "CSS", "C++", "JavaScript"],
-  },
-  {
+    {
     name: "locora-app",
     description:
       "Locora is a curated platform for discovering what is happening in Brentwood now, combining events, businesses, places, and opportunities into a clean local-exploration experience.",
@@ -58,6 +49,13 @@ const PROJECT_ITEMS = [
     liveUrl: "",
     badges: ["TypeScript", "React", "Next.js", "Tailwind CSS"],
   },
+  {
+    name: "otto",
+    description: "A highly customizable, Jarvis-inspired terminal assistant written in Python. It features context-aware fuzzy autocomplete, non-blocking background execution, and dynamic shell command routing. Built for Linux.",
+    status: "Actively Maintained",
+    repoUrl: "https://github.com/yajathb/otto",
+    badges: ["Python", "Shell"],
+  }
 ];
 
 const SKILL_GROUPS = [
